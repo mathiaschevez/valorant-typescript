@@ -8,6 +8,7 @@ type Data = {
     displayName: string,
     fullPortraitV2: string,
     isPlayableCharacter: boolean,
+    description: string,
   }]
 }
 
@@ -18,12 +19,15 @@ const agents = ({agents}: {agents: Data}) => {
   })
 
   return (
-    <div className=''>
-      <div className='flex flex-col items-center'>
+    <div className='px-6 pt-12'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         {agentsToShow.map((agent)  => (
-          <div key={agent.uuid} className='flex flex-col'>
-            <Image width={250} height={250} src={agent.fullPortraitV2} alt='agent' objectFit='contain'/>
-            <h1 className='text-white'>{agent.displayName}</h1>
+          <div key={agent.uuid} className='flex items-center'>
+            <Image className='z-10' width={800} height={800} src={agent.fullPortraitV2} alt='agent' objectFit='contain'/>
+            <div className='flex flex-col gap-3'>
+              <h1 className='text-red-600 text-2xl'>{agent.displayName}</h1>
+              <h1 className='text-white'>{agent.description}</h1>
+            </div>
           </div>
         ))}
       </div>
