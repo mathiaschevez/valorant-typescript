@@ -19,7 +19,7 @@ type Abilities = [{
   displayIcon: string,
 }]
 
-const agents = ({agents}: {agents: Data}) => {
+const Agents = ({agents}: {agents: Data}) => {
   const [activeAgent, setActiveAgent] = useState(agents.data[0])
 
   console.log(agents)
@@ -65,4 +65,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default agents
+export default Agents
