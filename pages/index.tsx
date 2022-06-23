@@ -6,8 +6,22 @@ export default function Home() {
   return (
     <div>
       <img className='w-screen' src={image}/>
-      <div>
-        <h1 className='text-white'>WELCOME TO VALORANT HEADQUARTERS</h1>
+      <div className='pb-6'>
+        <h1 className='text-white text-center text-3xl my-9'>WELCOME TO VALORANT HEADQUARTERS</h1>
+        <div className='grid grid-cols-4'>
+          <div className='flex items-center justify-center'>
+            <h1>AGENTS</h1>
+          </div>
+          <div className='flex items-center justify-center'>
+            <h1>WEAPONS</h1>
+          </div>
+          <div className='flex items-center justify-center'>
+            <h1>MAPS</h1>
+          </div>
+          <div className='flex items-center justify-center'>
+            <h1>SKINS</h1>
+          </div>
+        </div>
       </div>
     </div>
   )
