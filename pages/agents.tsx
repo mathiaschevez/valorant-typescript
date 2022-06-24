@@ -10,7 +10,12 @@ type Data = {
     isPlayableCharacter: boolean,
     description: string,
     abilities: Abilities,
+    role: Role,
   }]
+}
+
+type Role = {
+  displayName: string,
 }
 
 type Abilities = [{
@@ -43,16 +48,18 @@ const Agents = ({agents}: {agents: Data}) => {
       </div>
       <div className='ml-[440px] pb-9 flex flex-col items-center justify-center'>
         <Image className='z-10' width={600} height={600} src={activeAgent.fullPortraitV2} alt='agent' objectFit='contain'/>
-        <div className='flex justify-between mt-9'>
-          <div className='w-2/3'>
-            <h1 className='text-white text-4xl font-bold'>{activeAgent.displayName.toUpperCase()}</h1>
+        <div className='flex flex-col gap-6 justify-between mt-9'>
+          <div className='w-4/5'>
+            <h1 className='text-white text-5xl mb-3 font-bold italic'>{activeAgent.role.displayName.toUpperCase()}</h1>
             <h1 className='text-white z-0'>{activeAgent.description}</h1>
           </div>
-          <div className='flex gap-3'>
+          <div className='flex justify-between w-4/5'>
             {activeAgent.abilities.filter((ability, i) => i < 4).map((ability) => (
               <div className='flex flex-col items-center gap-3 h-28 justify-between' key={ability.displayName}>
-                <Image src={ability.displayIcon} alt='ability' width={60} height={60} objectFit='contain'/>
-                <h1 className='border text-center text-white text-sm w-full py-1'>{ability.displayName}</h1>
+                <div className='border py-1 px-2'>
+                  <Image src={ability.displayIcon} alt='ability' width={60} height={60} objectFit='contain'/>
+                </div>
+                <h1 className='text-center text-white text-sm w-full py-1'>{ability.displayName}</h1>
               </div>
             ))}
           </div>
